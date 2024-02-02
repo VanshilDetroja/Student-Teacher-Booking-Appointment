@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student-Teacher Appointment System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Student-Teacher Appointment System</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#admin">Admin</a></li>
+            <li><a href="#teacher">Teacher</a></li>
+            <li><a href="#student">Student</a></li>
+        </ul>
+    </nav>
+
+    <section id="admin">
+        <h2>Admin</h2>
+    
+        <!-- Add Teacher Section -->
+        <div class="admin-section">
+            <h3>Add Teacher</h3>
+            <form id="addTeacherForm">
+                <label for="teacherName">Teacher Name:</label>
+                <input type="text" id="teacherName" name="teacherName" required>
+    
+                <label for="department">Department:</label>
+                <input type="text" id="department" name="department" required>
+    
+                <label for="contactNumber">Contact Number:</label>
+                <input type="tel" id="contactNumber" name="contactNumber" required>
+    
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" required>
+    
+                <button type="button" onclick="addTeacher()">Add Teacher</button>
+            </form>
+        </div>
+    
+        <!-- Update/Delete Teacher Section -->
+        <div class="admin-section">
+            <h3>Update/Delete Teacher</h3>
+            <form id="updateDeleteTeacherForm">
+                <label for="teacherID">Teacher ID:</label>
+                <input type="text" id="teacherID" name="teacherID" required>
+    
+                <button type="button" onclick="updateTeacher()">Update Teacher</button>
+                <button type="button" onclick="deleteTeacher()">Delete Teacher</button>
+            </form>
+        </div>
+    
+        <!-- Approve Student Registration Section -->
+        <div class="admin-section">
+            <h3>Approve Student Registration</h3>
+            <form id="approveStudentForm">
+                <label for="studentID">Student ID:</label>
+                <input type="text" id="studentID" name="studentID" required>
+    
+                <button type="button" onclick="approveStudent()">Approve Student</button>
+            </form>
+        </div>
+    </section>
+    
+    <section id="teacher">
+        <h2>Teacher</h2>
+    
+        <!-- Login Section -->
+        <div class="teacher-section">
+            <h3>Login</h3>
+            <form id="teacherLoginForm">
+                <label for="teacherUsername">Username:</label>
+                <input type="text" id="teacherUsername" name="teacherUsername" required>
+    
+                <label for="teacherPassword">Password:</label>
+                <input type="password" id="teacherPassword" name="teacherPassword" required>
+    
+                <button type="button" onclick="teacherLogin()">Login</button>
+            </form>
+        </div>
+    
+        <!-- Schedule Appointment Section -->
+        <div class="teacher-section">
+            <h3>Schedule Appointment</h3>
+            <form id="scheduleAppointmentForm">
+                <!-- Add scheduling fields as needed -->
+    
+                <button type="button" onclick="scheduleAppointment()">Schedule Appointment</button>
+            </form>
+        </div>
+    
+        <!-- Approve/Cancel Appointment Section -->
+        <div class="teacher-section">
+            <h3>Approve/Cancel Appointment</h3>
+            <form id="approveCancelAppointmentForm">
+                <!-- Add fields for appointment ID, status, etc. -->
+    
+                <button type="button" onclick="approveAppointment()">Approve Appointment</button>
+                <button type="button" onclick="cancelAppointment()">Cancel Appointment</button>
+            </form>
+        </div>
+    
+        <!-- View Messages Section -->
+        <div class="teacher-section">
+            <h3>View Messages</h3>
+            <!-- Display messages here -->
+        </div>
+    
+        <!-- View All Appointments Section -->
+        <div class="teacher-section">
+            <h3>View All Appointments</h3>
+            <!-- Display all appointments here -->
+        </div>
+    
+        <!-- Logout Section -->
+        <div class="teacher-section">
+            <h3>Logout</h3>
+            <button type="button" onclick="teacherLogout()">Logout</button>
+        </div>
+    </section>
+    
+    <section id="student">
+        <h2>Student</h2>
+    
+        <!-- Login Section -->
+        <div class="student-section">
+            <h3>Login</h3>
+            <form id="studentLoginForm">
+                <label for="studentUsername">Username:</label>
+                <input type="text" id="studentUsername" name="studentUsername" required>
+    
+                <label for="studentPassword">Password:</label>
+                <input type="password" id="studentPassword" name="studentPassword" required>
+    
+                <button type="button" onclick="studentLogin()">Login</button>
+            </form>
+        </div>
+    
+        <!-- Register Section -->
+        <div class="student-section">
+            <h3>Register</h3>
+            <form id="studentRegisterForm">
+                <!-- Add registration fields as needed -->
+    
+                <button type="button" onclick="studentRegister()">Register</button>
+            </form>
+        </div>
+    
+        <!-- Search Teacher Section -->
+        <div class="student-section">
+            <h3>Search Teacher</h3>
+            <form id="searchTeacherForm">
+                <label for="teacherName">Teacher Name:</label>
+                <input type="text" id="teacherName" name="teacherName" required>
+    
+                <button type="button" onclick="searchTeacher()">Search Teacher</button>
+            </form>
+        </div>
+    
+        <!-- Book Appointment Section -->
+        <div class="student-section">
+            <h3>Book Appointment</h3>
+            <form id="bookAppointmentForm">
+                <!-- Add fields for booking appointments -->
+    
+                <button type="button" onclick="bookAppointment()">Book Appointment</button>
+            </form>
+        </div>
+    
+        <!-- Send Message Section -->
+        <div class="student-section">
+            <h3>Send Message</h3>
+            <form id="sendMessageForm">
+                <label for="messageRecipient">Recipient:</label>
+                <input type="text" id="messageRecipient" name="messageRecipient" required>
+    
+                <label for="messageContent">Message:</label>
+                <textarea id="messageContent" name="messageContent" required></textarea>
+    
+                <button type="button" onclick="sendMessage()">Send Message</button>
+            </form>
+        </div>
+    </section>
+ 
+    <script src="script.js"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyBv_Gz-ganbSsaRRw1cciffjRrKvX2JYLw",
+          authDomain: "student-teacher-appointm-8e1b7.firebaseapp.com",
+          projectId: "student-teacher-appointm-8e1b7",
+          storageBucket: "student-teacher-appointm-8e1b7.appspot.com",
+          messagingSenderId: "30209146842",
+          appId: "1:30209146842:web:2abe7c371f237a93bb8ae3",
+          measurementId: "G-ESH0W91DX8"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
+</body>
+</html>
